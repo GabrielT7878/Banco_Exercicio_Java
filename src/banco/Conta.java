@@ -11,12 +11,18 @@ public class Conta {
         return saldo;
     }
 
-    public void depositar(double valor){
+    public boolean depositar(double valor){
         saldo += valor;
+        return true;
     }
 
-    public void sacar(double amount){
-        saldo -= amount;
+    public boolean sacar(double amount) {
+        if (amount > saldo) {
+            return false;
+        } else {
+            saldo -= amount;
+        }
+        return true;
     }
 
 }
